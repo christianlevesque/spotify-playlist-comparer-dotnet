@@ -1,33 +1,43 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Net.Http;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SpotifyComparer;
 using SpotifyComparer.Programs;
 
 Setup();
 
-var sc = new ServiceCollection();
+var host = Host
+	.CreateDefaultBuilder(args)
+	.ConfigureServices((context, services) =>
+	{
+		services
+			.AddSingleton<HttpClient>()
+			.AddSpotifyData(context.Configuration)
+			.AddSingleton<PlaylistReader>();
+	})
+	.ConfigureLogging(l => l.ClearProviders().AddConsole())
+	.Build();
 
-var configBuilder = new ConfigurationBuilder();
-configBuilder.AddEnvironmentVariables();
-var config = configBuilder.Build();
-
-sc
-	.AddOptions()
-	.AddSingleton<HttpClient>()
-	.AddLogging(o => o.AddConsole())
-	.AddSpotifyData(config)
-	.AddSingleton<PlaylistReader>();
-
-var sp = sc.BuildServiceProvider();
+using var scope = host.Services.CreateScope();
+var sp = scope.ServiceProvider;
 
 var program = sp.GetRequiredService<PlaylistReader>();
 
-await program.Run();
+var myPlaylistId = "5mqGfLkxNfltlXkyCjbwBS";
+var dadsPlaylistId = "17qqowXCtlv6v44wY4i0jU";
 
-return 0;
+try
+{
+	await program.GetAllTracks(myPlaylistId);
+}
+catch (Exception) {}
+finally
+{
+	await host.StopAsync();
+}
 
 static void Setup()
 {
