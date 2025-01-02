@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpotifyComparer", "SpotifyComparer\SpotifyComparer.csproj", "{67CBEA6C-0730-4188-AA5F-28CFE90B8C0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpotifyComparer.Data", "SpotifyComparer.Data\SpotifyComparer.Data.csproj", "{6D3102BD-370C-4ABA-BAD3-AD30D2AC92AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67CBEA6C-0730-4188-AA5F-28CFE90B8C0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67CBEA6C-0730-4188-AA5F-28CFE90B8C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67CBEA6C-0730-4188-AA5F-28CFE90B8C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67CBEA6C-0730-4188-AA5F-28CFE90B8C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D3102BD-370C-4ABA-BAD3-AD30D2AC92AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D3102BD-370C-4ABA-BAD3-AD30D2AC92AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D3102BD-370C-4ABA-BAD3-AD30D2AC92AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D3102BD-370C-4ABA-BAD3-AD30D2AC92AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
